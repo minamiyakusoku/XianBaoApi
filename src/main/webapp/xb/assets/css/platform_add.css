@@ -1,0 +1,33 @@
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#commit{
+    background: #00baf5;
+    color: #fff;
+}
+a.return{
+    color: #242a30;
+    width: 60px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}

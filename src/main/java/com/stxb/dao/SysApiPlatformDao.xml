@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiPlatformDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiPlatform" flushCache="true">  
+   insert into SYS_API_PLATFORM(apip_name,apip_code,apip_api_name,apip_api_url,apip_createtime,apip_is_delete) values (#{name},#{code},#{apiName},#{apiUrl},#{createTime},#{isDelete})
+   	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey> 
+</insert>  
+
+<select id="get" parameterType="string" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_api_url = #{apiUrl} and apip_is_delete =0
+</select> 
+<select id="getIncludeDeleted" parameterType="string" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_api_url = #{apiUrl} 
+</select> 
+
+<select id="getById" parameterType="int" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_id = #{id} and apip_is_delete =0
+</select> 
+<select id="getByIdIncludeDeleted" parameterType="int" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_id = #{id} 
+</select>
+<select id="getAll" parameterType="string" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_is_delete =0 order by apip_createtime desc
+</select> 
+<select id="getAllIncludeDeleted" parameterType="string" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM order by apip_createtime desc
+</select> 
+<select id="getAllOnlyDeleted" parameterType="string" resultType="com.stxb.model.SysApiPlatform" resultMap="SysApiPlatformResultMap">  
+    select * from SYS_API_PLATFORM where apip_is_delete =1 order by apip_createtime desc
+</select> 
+
+<resultMap type="com.stxb.model.SysApiPlatform" id="SysApiPlatformResultMap">
+	<id property="id" column="apip_id" />
+	<result property="name" column="apip_name"/>
+	<result property="code" column="apip_code"/>
+	<result property="apiName" column="apip_api_name"/>
+	<result property="apiUrl" column="apip_api_url"/>
+	<result property="createTime" column="apip_createtime"/>
+	<result property="isDelete" column="apip_is_delete"/>
+</resultMap> 
+<update id="update" parameterType="com.stxb.model.SysApiPlatform" flushCache="true">  
+    UPDATE SYS_API_PLATFORM SET apip_name=#{name},apip_code=#{code},apip_api_name=#{apiName},apip_api_url=#{apiUrl} WHERE apip_id=#{id}  
+</update>  
+<update id="delete" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_PLATFORM SET apip_is_delete = 1 WHERE apip_id=#{id}  
+</update> 
+<update id="unDelete" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_PLATFORM SET apip_is_delete = 0 WHERE apip_id=#{id}  
+</update> 
+
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysCheckDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysCheck" flushCache="true">  
+   insert into SYS_CHECK(ck_in_id,ck_checktype) values (#{id},#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysCheck" resultMap="SysCheckResultMap">  
+    select * from SYS_CHECK where ck_in_id = #{id}
+</select> 
+
+<resultMap type="com.stxb.model.SysCheck" id="SysCheckResultMap">
+	<id property="id" column="ck_in_id" />
+	<result property="type" column="ck_checktype" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+</resultMap>
+<update id="update" parameterType="com.stxb.model.SysCheck" flushCache="true">  
+    UPDATE SYS_CHECK SET ck_checktype=#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler} WHERE ck_in_id=#{id}  
+</update>  
+<delete id="delete" parameterType="com.stxb.model.SysCheck" flushCache="true">  
+    DELETE FROM SYS_CHECK WHERE ck_in_id=#{id}  
+</delete>
+
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

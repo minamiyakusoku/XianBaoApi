@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.common.SqlExecuteDao">  
+
+<select id="sqlSearch" parameterType="map" resultType="map">  
+    ${sql}
+</select> 
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

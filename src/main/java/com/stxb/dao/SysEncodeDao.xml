@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysEncodeDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysEncode" flushCache="true">  
+   insert into SYS_ENCODE(ec_in_type,ec_in_map,ec_out_type,ec_out_map) values 
+   (#{inType,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},#{inParams,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler},#{outType,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},#{outParams,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler})
+   	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey> 
+</insert>
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysEncode" resultMap="SysEncodeResultMap">  
+    select * from SYS_ENCODE where ec_id =#{id}
+</select> 
+
+<resultMap type="com.stxb.model.SysEncode" id="SysEncodeResultMap">
+	<id property="id" column="ec_id" />
+	<result property="inType" column="ec_in_type" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+	<result property="inParams" column="ec_in_map" typeHandler="com.stxb.utils.typehandler.JsonTypeHandler"/>
+	<result property="outType" column="ec_out_type" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+	<result property="outParams" column="ec_out_map" typeHandler="com.stxb.utils.typehandler.JsonTypeHandler"/>
+</resultMap>
+
+<update id="update" parameterType="com.stxb.model.SysEncode" flushCache="true">  
+    UPDATE SYS_ENCODE SET ec_in_type=#{inType,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},ec_in_map=#{inParams,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler},ec_out_type=#{outType,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},ec_out_map=#{outParams,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler} WHERE ec_id=#{id}  
+</update>  
+<delete id="delete" parameterType="com.stxb.model.SysEncode" flushCache="true">  
+    DELETE FROM SYS_ENCODE WHERE ec_id=#{id}  
+</delete>
+
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

@@ -1,0 +1,531 @@
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link rel="stylesheet" href="assets/css/port_add.css"/>
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:history.go(-1)" class="return">返回&gt;</a></li>
+    </ol>
+    <h1 class="page-header">添加接口</h1>
+    <hr style="border-top:1px solid #d7dde6"/>
+
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-12 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <form class="form-horizontal" data-parsley-validate="true" method="post">
+                        <div id="wizard">
+                            <ol class="wizard_title row">
+                                <li class="col-sm-3 active">
+                                    <span>1</span>
+                                    <a href="javascript:;">Api</a>
+                                </li>
+                                <li class="col-sm-3">
+                                    <span>2</span>
+                                    <a href="javascript:;">入参</a>
+                                </li>
+                                <li class="col-sm-3">
+                                    <span>3</span>
+                                    <a href="javascript:;">出参</a>
+                                </li>
+                                <li class="col-sm-3">
+                                    <span>4</span>
+                                    <a href="javascript:;">SQL</a>
+                                </li>
+                            </ol>
+                            <!-- begin wizard step-1 -->
+                            <div class="step step_actiev">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">VersionID:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiinfo.versionId"  data-parsley-required="true" data-parsley-error-message="请填写">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Api名字:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control aaa" name="apiinfo.name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Api标识:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiinfo.apiName">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">类型:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiinfo.type">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">是否加密:</label>
+
+                                            <div class="col-sm-4">
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" class="Radio" name="apiinfo.enCode" value="1">是
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="apiinfo.enCode" value="0">否
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">平台ID:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiinfo.pId">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">返回数据标题:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiresult.resultName">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">非传参错误码:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiresult.exceptionCode">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">模板:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiresult.template">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">返回数据格式化配置:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="apiresult.cfgMap">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end wizard step-1 -->
+                            <!-- begin wizard step-2 -->
+                            <div class="step">
+                                <div class="row">
+                                    <div id="main1">
+                                        <!--<div class="content_list">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">参数显示名称:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inargslist.inArgsList[0].cloName">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">传参名称:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inargslist.inArgsList[0].pyName">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">数据类型:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <select class="form-control" name="inargslist.inArgsList[0].type">
+                                                            <option value="STRING">STRING</option>
+                                                            <option value="DATE">DATE</option>
+                                                            <option value="MONEY">MONEY</option>
+                                                            <option value="INT">INT</option>
+                                                            <option value="DOUBLE">DOUBLE</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">是否为空:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <label class="checkbox-inline">
+                                                            <input type="radio" name="inargslist.inArgsList[0].isNull"
+                                                                   value="1">是
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="radio" name="inargslist.inArgsList[0].isNull"
+                                                                   value="0">否
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">格式化方式:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inargslist.inArgsList[0].format">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">传入时加密方式:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <select class="form-control" name="inargslist.encodeList[0].inType">
+                                                            <option value="NONE">NONE</option>
+                                                            <option value="DES">DES</option>
+                                                            <option value="DES3_ECB">DES3_ECB</option>
+                                                            <option value="DES3_CBC">DES3_CBC</option>
+                                                            <option value="RSA">RSA</option>
+                                                            <option value="MD5">MD5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">传入时加密配置列表:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inargslist.encodeList[0].inParams">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">传出时加密配置列表:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inargslist.encodeList[0].outParams">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">传出时加密方式:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <select class="form-control" name="inargslist.encodeList[0].outType">
+                                                            <option value="NONE">NONE</option>
+                                                            <option value="DES">DES</option>
+                                                            <option value="DES3_ECB">DES3_ECB</option>
+                                                            <option value="DES3_CBC">DES3_CBC</option>
+                                                            <option value="RSA">RSA</option>
+                                                            <option value="MD5">MD5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">入参数据类型:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <select class="form-control" name="inchecklist.checkList[0].type">
+                                                            <option value="STRING">STRING</option>
+                                                            <option value="DATE">DATE</option>
+                                                            <option value="MONEY">MONEY</option>
+                                                            <option value="INT">INT</option>
+                                                            <option value="DOUBLE">DOUBLE</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">出现为空报错时错误码:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inexceptionlist.exceptionList[0].nullException">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">出现加/解密失败报错时错误码:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inexceptionlist.exceptionList[0].encodeException">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">出现格式化失败时的错误码:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inexceptionlist.exceptionList[0].formatException">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">出现类型检查失败是错误码:</label>
+
+                                                    <div class="col-sm-4">
+                                                        <input type="text" class="form-control"
+                                                               name="inexceptionlist.exceptionList[0].argCheckException">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                    </div>
+
+                                    <!--添加-->
+                                    <div class="col-sm-8" id="add">
+                                        <div class="form-group pull-right">
+                                            <input type="button" value="+" class="add_list1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end wizard step-2 -->
+                            <!-- begin wizard step-3 -->
+                            <div class="step">
+                                <div class="row">
+                                    <div id="main2">
+                                        <!--<div class="content_list">-->
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">参数显示名称:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<input type="text" class="form-control"-->
+                                        <!--name="outargslist.outArgsList[0].cloName">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">传参名称:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<input type="text" class="form-control"-->
+                                        <!--name="outargslist.outArgsList[0].pyName">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">数据类型:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<select class="form-control" name="outargslist.outArgsList[0].type">-->
+                                        <!--<option value="STRING">STRING</option>-->
+                                        <!--<option value="DATE">DATE</option>-->
+                                        <!--<option value="MONEY">MONEY</option>-->
+                                        <!--<option value="INT">INT</option>-->
+                                        <!--<option value="DOUBLE">DOUBLE</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">是否为空:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<label class="checkbox-inline">-->
+                                        <!--<input type="radio" name="outargslist.outArgsList[0].isNull"-->
+                                        <!--value="1">是-->
+                                        <!--</label>-->
+                                        <!--<label class="checkbox-inline">-->
+                                        <!--<input type="radio" name="outargslist.outArgsList[0].isNull"-->
+                                        <!--value="0">否-->
+                                        <!--</label>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">格式化方式:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<input type="text" class="form-control"-->
+                                        <!--name="outargslist.outArgsList[0].formate">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">传入时加密方式:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<select class="form-control" name="outencodelist.encodeList[0].inType">-->
+                                        <!--<option value="NONE">NONE</option>-->
+                                        <!--<option value="DES">DES</option>-->
+                                        <!--<option value="DES3_ECB">DES3_ECB</option>-->
+                                        <!--<option value="DES3_CBC">DES3_CBC</option>-->
+                                        <!--<option value="RSA">RSA</option>-->
+                                        <!--<option value="MD5">MD5</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">传入时加密配置列表:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<input type="text" class="form-control"-->
+                                        <!--name="outencodelist.encodeList[0].inParams">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">传出时加密配置列表:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<input type="text" class="form-control"-->
+                                        <!--name="outencodelist.encodeList[0].outParams">-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-md-12">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label class="col-sm-3 control-label">传出时加密方式:</label>-->
+
+                                        <!--<div class="col-sm-4">-->
+                                        <!--<select class="form-control" name="outencodelist.encodeList[0].outType">-->
+                                        <!--<option value="NONE">NONE</option>-->
+                                        <!--<option value="DES">DES</option>-->
+                                        <!--<option value="DES3_ECB">DES3_ECB</option>-->
+                                        <!--<option value="DES3_CBC">DES3_CBC</option>-->
+                                        <!--<option value="RSA">RSA</option>-->
+                                        <!--<option value="MD5">MD5</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+                                    </div>
+
+                                    <!--添加-->
+                                    <div class="col-sm-8">
+                                        <div class="form-group pull-right">
+                                            <input type="button" value="+" class="add_list2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end wizard step-3 -->
+                            <!-- begin wizard step-4 -->
+                            <div class="step">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">SQL语句编写：</label>
+
+                                            <div class="col-md-9">
+                                                    <textarea class="form-control" rows="8"
+                                                              style="resize: none" name="apisql.sqlInfo"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end wizard step-4 -->
+
+                        </div>
+                        <div class="step_button">
+                            <a href="javascript:;" class="prev pull-left" style="display: none">&lt;上一步</a>
+                            <a href="javascript:;" class="next pull-right">下一步 &gt;</a>
+                            <button type="button" class="pull-right btn" id="commit" onclick="checkNull()" >提交</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!-- end panel -->
+        </div>
+        <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end #content -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
+<script>
+    App.restartGlobalFunction();
+    $.getScript('assets/js/port_add.js');
+
+
+</script>
+<!-- ================== END PAGE LEVEL JS ================== -->

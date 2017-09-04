@@ -1,0 +1,134 @@
+﻿th,tbody {
+    text-align: center;
+}
+.tab_count .table tbody td{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+a:link {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+a:active {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #2ebde4;
+    text-decoration: none;
+}
+a.return{
+    color: #242a30;
+    width: 60px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}
+.tab_list{
+    width: 100%;
+    height: 44px;
+    background: #2ebde4;
+    line-height: 44px;
+    padding-left: 16px;
+}
+.tab_list a{
+    display: inline-block;
+    width: 90px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 30px;
+    color: #fff;
+}
+.tab_list a.active{
+    background: #fff;
+    color:#2ebde4;
+}
+.tab_count{
+    display: none;
+}
+.tab_count.active{
+    display: block;
+}
+.th_width{
+    width: 350px;
+}
+#mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: #000;
+    z-index: 99999;
+    display: none;
+}
+.content{
+    overflow: hidden;
+}
+.custom_menu{
+    width: 350px;
+    min-height: 500px;
+    background: #f8f8f8;
+}
+.menu-title{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 12px 0 12px;
+    background: #e4e7ec;
+}
+#menuList{ padding:0px;margin-left:10px;margin-right:10px;font-size:14px;}
+#menuList .new-menu-wrap{margin:13px 0px;}
+.menu-list{border:solid #e1e7ee; border-width:0 0 1px 0; margin-top:10px; padding-bottom: 5px; }
+.menu-list span.name{  padding-left:13px; }
+#menuList .menu-list .subMenu-list .new-subMenu-wrap{margin-bottom:8px;}
+
+a.new-menu{font-size:14px; padding-left:4px;height:27px;line-height: 27px;}
+#menuList .menu-list .subMenu-list{ background:url(https://i.alipayobjects.com/i/ecmng/png/201406/2t023Kw3hd.png) 18px bottom no-repeat;padding-left:40px;padding-bottom:5px;}
+#menuList .menu-list .subMenu-list .list-item{margin:0px 0 8px 0px;}
+#menuList .menu-list .list-item.list-parent .actionContainer{left:290px;}
+#menuList .menu-list .subMenu-list .list-item.list-sub .actionContainer {left: 248px;padding:0 10px;}
+#menuList .menu-list .subMenu-list .list-item.list-sub .actionContainer h3.title { padding-left:5px;height:14px;line-height:14px;margin-top:10px;}
+.list-item {
+    position: relative;
+    color: #666;
+    height: 27px;
+    line-height: 27px;
+}
+.hint{
+    font-size: 12px;
+}
+.saveContainer{
+    padding: 10px;
+}
+.editing {
+    line-height: 17px;
+    width: 190px;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.saveNewName, .saveEditName {
+    width: 20px;
+    height: 16px;
+    overflow: hidden;
+    background-position: 0 -78px;
+    margin-left: -22px;
+    margin-top: 6px;
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    background: url(../../assets/img/return.png) no-repeat;
+}
+

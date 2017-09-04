@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiSqlDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiSql" flushCache="true">  
+   insert into SYS_API_SQL(api_sql_api_id,api_sql_sql_info) values (#{apiId},#{sqlInfo})
+   	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey> 
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysApiSql" resultMap="SysApiSqlResultMap">  
+    select * from SYS_API_SQL where api_sql_id = (select MAX(api_sql_id) from SYS_API_SQL where api_sql_api_id=#{apiId})
+</select> 
+<select id="getById" parameterType="int" resultType="com.stxb.model.SysApiSql" resultMap="SysApiSqlResultMap">  
+    select * from SYS_API_SQL where api_sql_id = #{id}
+</select> 
+
+<resultMap type="com.stxb.model.SysApiSql" id="SysApiSqlResultMap">
+	<id property="id" column="api_sql_id" />
+	<result property="apiId" column="api_sql_api_id"/>
+	<result property="sqlInfo" column="api_sql_sql_info"/>
+</resultMap>
+
+<update id="update" parameterType="com.stxb.model.SysApiSql" flushCache="true">  
+    UPDATE SYS_API_SQL SET api_sql_api_id=#{apiId},api_sql_sql_info=#{sqlInfo} WHERE api_sql_id=#{id}  
+</update> 
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

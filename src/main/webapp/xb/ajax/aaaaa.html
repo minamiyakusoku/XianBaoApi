@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script>
+        var data='aaaajldjfkds{"aaa":"bb"}{"EXCEPTION_CODE":"sub_code","DATA":"base","API_CODE":"code","INARGS":"base"}';
+
+
+        function strToObj(data){
+            var str=data.match(/\{[^\}]+}/g);
+            for(var i=0;i<str.length;i++){
+                var json=JSON.parse(str[i]);
+                data=data.replace(str[i],json);
+            }
+            return data;
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

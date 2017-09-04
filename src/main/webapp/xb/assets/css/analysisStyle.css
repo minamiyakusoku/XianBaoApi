@@ -1,0 +1,59 @@
+#content{
+    position: relative;
+}
+label{
+    position: relative;
+}
+.fans{
+    left:10px;
+}
+.message{
+    left:130px;
+}
+input{
+    position: absolute;
+    top: 0px;
+}
+label span{
+    position: absolute;
+    left:20px;
+    width: 100px;
+}
+#main{
+     margin-top: 80px;
+ }
+.month,.week{
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color:#5dbbdf;
+    display: block;
+    background: #fff;
+    border: 1px solid #5dbbdf;
+    position: absolute;
+}
+.month {
+    top: 160px;
+    left: 120px;
+}
+.week{
+    top: 160px;
+    left: 50px;
+}
+.nowActive{
+    background:  #5dbbdf;
+    color:#fff !important;
+    text-decoration: none !important;
+}
+.Fans{
+    width:150px;
+    position: absolute;
+    top: 160px;
+    right: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #5dbbdf;;
+    color:#5dbbdf;
+}

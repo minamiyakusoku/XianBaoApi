@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiOutArgInfoDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiOutArgInfo" flushCache="true">  
+	insert into SYS_API_OUTARGINFO(api_out_api_id,api_out_clo_name,api_out_py_name,api_out_type,api_out_is_null,api_out_is_encode,api_out_format) values (#{apiId},#{cloName},#{pyName},#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},#{isNull},#{encode},#{format})
+	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey> 
+</insert>  
+<select id="get" parameterType="int" resultType="com.stxb.model.SysApiOutArgInfo" resultMap="SysApiOutArgInfoResultMap">  
+    SELECT * FROM SYS_API_OUTARGINFO WHERE api_out_api_id=#{apiId}
+</select> 
+
+<select id="getById" parameterType="int" resultType="com.stxb.model.SysApiOutArgInfo" resultMap="SysApiOutArgInfoResultMap">  
+    SELECT * FROM SYS_API_OUTARGINFO WHERE api_out_id=#{id}
+</select>
+<select id="getByPyNameAndApiId" resultType="com.stxb.model.SysApiOutArgInfo" resultMap="SysApiOutArgInfoResultMap">  
+    SELECT * FROM SYS_API_OUTARGINFO WHERE api_out_api_id=#{apiId} and api_out_py_name = #{pyName}
+</select>
+<resultMap type="com.stxb.model.SysApiOutArgInfo" id="SysApiOutArgInfoResultMap">  
+        <id property="id" column="api_out_id"/>  
+        <result property="apiId" column="api_out_api_id"/>
+        <result property="cloName" column="api_out_clo_name"/>
+        <result property="pyName" column="api_out_py_name"/>
+        <result property="type" column="api_out_type" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+        <result property="isNull" column="api_out_is_null"/>
+        <result property="encode" column="api_out_is_encode" />
+        <result property="format" column="api_out_format"/>
+</resultMap>  
+
+<update id="update" parameterType="com.stxb.model.SysApiOutArgInfo" flushCache="true">  
+    UPDATE SYS_API_OUTARGINFO SET api_out_clo_name=#{cloName},api_out_py_name=#{pyName},api_out_type=#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},api_out_is_null=#{isNull},api_out_is_encode=#{encode},api_out_format=#{format} WHERE id=#{id}  
+</update> 
+
+<delete id="delete" parameterType="int" flushCache="true">  
+    DELETE FROM SYS_API_OUTARGINFO WHERE api_out_id=#{id}  
+</delete>  
+<!--  a
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

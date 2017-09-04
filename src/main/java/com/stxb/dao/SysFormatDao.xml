@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysFormatDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysFormat" flushCache="true">  
+   insert into SYS_FORMAT(df_type,df_in_pattern,df_out_pattern) values (#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},#{inPattern},#{outPattern})
+   	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey> 
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysFormat" resultMap="SysFormatResultMap">  
+    select * from SYS_FORMAT where df_id = #{id}
+</select> 
+<select id="getAll" parameterType="int" resultType="com.stxb.model.SysFormat" resultMap="SysFormatResultMap">  
+    select * from SYS_FORMAT 
+</select> 
+<select id="getByType" parameterType="int" resultType="com.stxb.model.SysFormat" resultMap="SysFormatResultMap">  
+    select * from SYS_FORMAT where df_type = #{enumType}
+</select>
+
+<resultMap type="com.stxb.model.SysFormat" id="SysFormatResultMap">
+	<id property="id" column="df_id" />
+	<result property="type" column="df_type" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+	<result property="inPattern" column="df_in_pattern"/>
+	<result property="outPattern" column="df_out_pattern"/>
+</resultMap>
+<update id="update" parameterType="com.stxb.model.SysFormat" flushCache="true">  
+    UPDATE SYS_FORMAT SET df_type=#{type,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},df_in_pattern=#{inPattern},df_out_pattern=#{outPattern} WHERE df_id=#{id}  
+</update>  
+<delete id="delete" parameterType="com.stxb.model.SysFormat" flushCache="true">  
+    DELETE FROM SYS_FORMAT WHERE df_id=#{id}  
+</delete>
+
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

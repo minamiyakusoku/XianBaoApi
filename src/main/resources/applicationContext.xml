@@ -1,0 +1,75 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/tx   
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   
+    http://www.springframework.org/schema/aopf    
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	配置数据源
+	<bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.gjt.mm.mysql.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://192.168.31.2:3306/rabbit?useUnicode=true&amp;characterEncoding=UTF-8
+			</value>
+		</property>
+		<property name="username">
+			<value>rabbit</value>
+		</property>
+		<property name="password">
+			<value>G00drabbit</value>
+		</property>
+	</bean>
+ -->
+	<!--  
+	author	檀晓阳
+	time	2016年12月2日 10:44:24
+	
+	ForOracle
+	<bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+		<property name="username" value="*"></property>
+		<property name="password" value="*"></property>
+	</bean>
+	
+	ForSqlServer
+	<bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.jdbc.sqlserver.SQLServerDriver"></property>
+		<property name="url" value="jdbc.microsoft:sqlserver://localhost:1433;DatabaseName=*DB"></property>
+		<property name="username" value="*"></property>
+		<property name="password" value="*"></property>
+	</bean>	
+	
+ 	
+    
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="jdbcDataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+
+	</bean>
+
+	<bean id="InArgDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.stxb.dao.InArgDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="OutArgDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.stxb.dao.OutArgDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="SqlExecuteDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.stxb.dao.SqlExecuteDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<bean id="SqlExecuteService" class="com.stxb.service.impl.SqlExecuteServiceImpl">
+		<property name="dao" ref="SqlExecuteDao"></property>
+	</bean>
+
+</beans>-->

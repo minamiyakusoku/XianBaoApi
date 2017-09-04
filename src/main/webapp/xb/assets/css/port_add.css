@@ -1,0 +1,89 @@
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#wizard ol{
+    list-style: none;
+    width: 100%;
+}
+.wizard_title li{
+    height: 52px;
+    background: #4d5e71;
+    color:#fff;
+    line-height: 52px;
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 2px solid #fff;
+}
+.wizard_title span{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    color: #4d5e71;
+    display: inline-block;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 50%;
+    margin-right:8px;
+}
+.wizard_title{
+    margin-bottom: 34px;
+}
+.wizard_title a{
+    font-size: 18px;
+}
+.wizard_title .active{
+    background: #00baf5;
+}
+.step{
+    display: none;
+}
+.step_actiev{
+    display: block;
+}
+a.next,a.prev{
+    color: #242a30;
+    width: 80px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}
+a.return{
+    color: #242a30;
+    width: 60px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}
+.font_right{
+    text-align: right;
+}
+
+#commit,.prev{
+    display: none;
+}
+#commit{
+    background: #00baf5;
+    color: #fff;
+}

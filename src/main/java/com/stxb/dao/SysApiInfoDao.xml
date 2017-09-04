@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiInfoDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiInfo" flushCache="true">  
+	insert into SYS_API_INFO(api_api_id,api_version_id,api_name,api_api_name,api_in_args_count,api_out_args_count,api_type,api_is_encode,api_createtime,api_pid,api_state) values 
+	(#{apiId},#{versionId},#{name},#{apiName},#{inArgsCount},#{outArgsCount},#{type},#{isEnCode},#{createTime},#{pId},#{state,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
+	<selectKey resultType="int" keyProperty="id"> 
+    	SELECT LAST_INSERT_ID() AS ID 
+    </selectKey>
+</insert>  
+
+<select id="getLastApiId"  parameterType="int" resultType="int"  >  
+    SELECT MAX(api_api_id) FROM SYS_API_INFO WHERE api_pid=#{pId}
+</select>  
+<select id="getByApiName" parameterType="string" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_api_name=#{apiName} and api_state=0 order by api_createtime desc
+</select>  
+<select id="getByApiNameIncludeDeleted" parameterType="string" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_api_name=#{apiName}  order by api_createtime desc
+</select>  
+<select id="getByPIdAndApiName" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_api_name=#{apiName} and api_pid=#{pId} and api_state=0 order by api_createtime desc
+</select> 
+<select id="getByPIdAndApiNameIncludeDeleted" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_api_name=#{apiName} and api_pid=#{pId}  order by api_createtime desc
+</select> 
+<select id="getElseSameApiName" parameterType="com.stxb.model.SysApiInfo" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_api_name=#{apiName} and api_pid=#{pId} and api_api_id!=#{apiId}  order by api_createtime desc
+</select> 
+<select id="getById" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_id=#{id} and api_state!=2
+</select> 
+<select id="getByIdIncludeDeleted" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_id=#{id}
+</select> 
+<select id="getAll" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_state!=2 and api_state!=4 order by api_createtime desc
+</select> 
+<select id="getAllIncludeDeleted" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO order by api_createtime desc
+</select> 
+<select id="getAllOnlyDeleted" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_state=2 order by api_createtime desc
+</select> 
+<select id="getAllOnlyService" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_state=0 order by api_createtime desc
+</select> 
+<select id="getAllOnlyOff" resultType="com.stxb.model.SysApiInfo"  resultMap="SysApiInfoResultMap">  
+    SELECT * FROM SYS_API_INFO WHERE api_state=1 order by api_createtime desc
+</select> 
+
+<resultMap type="com.stxb.model.SysApiInfo" id="SysApiInfoResultMap">  
+        <id property="id" column="api_id"/>  
+        <result property="apiId" column="api_api_id"/>
+        <result property="versionId" column="api_version_id"/>
+        <result property="name" column="api_name"/>
+        <result property="apiName" column="api_api_name"/>
+        <result property="inArgsCount" column="api_in_args_count"/>
+        <result property="outArgsCount" column="api_out_args_count"/>
+        <result property="type" column="api_type"/>
+        <result property="isEnCode" column="api_is_encode" />
+        <result property="createTime" column="api_createtime"/>
+        <result property="pId" column="api_pid"/>
+        <result property="state" column="api_state" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+</resultMap>        
+<update id="update" parameterType="com.stxb.model.SysApiInfo" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_name=#{name},api_api_name=#{apiName},api_type=#{type},api_is_encode=#{isEnCode} WHERE api_id=#{id}  
+</update>  
+<update id="delete" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_state = 2 where api_id = #{id} 
+</update>    
+<update id="unDelete" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_state = 1 where api_id = #{id} 
+</update>  
+<update id="deleteByPId" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_state = 2 where api_pid = #{pId} 
+</update>    
+<update id="unDeleteByPId" parameterType="int" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_state = 1 where api_pid = #{pId} 
+</update> 
+<update id="updateApiNameByP" parameterType="com.stxb.model.SysApiInfo" flushCache="true">  
+    UPDATE SYS_API_INFO SET api_api_name= #{apiName} where api_api_id = #{apiId} and api_pid = #{pId}
+</update> 
+
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

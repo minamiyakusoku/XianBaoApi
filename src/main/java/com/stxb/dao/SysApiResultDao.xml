@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiResultDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiResult" flushCache="true">  
+   insert into SYS_API_RESULT(api_id,api_re_name,api_re_search_exception_code,api_re_template,api_re_cfg_map) values (#{id},#{resultName},#{exceptionCode},#{template},#{cfgMap,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler}) 
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysApiResult" resultMap="SysApiResultResultMap">  
+    select * from SYS_API_RESULT where api_id = #{id}
+</select> 
+
+
+<resultMap type="com.stxb.model.SysApiResult" id="SysApiResultResultMap">
+	<id property="id" column="api_id" />
+	<result property="resultName" column="api_re_name"/>
+	<result property="exceptionCode" column="api_re_search_exception_code"/>
+	<result property="template" column="api_re_template"/>
+	<result property="cfgMap" column="api_re_cfg_map" typeHandler="com.stxb.utils.typehandler.JsonTypeHandler"/>
+</resultMap>
+
+<update id="update" parameterType="com.stxb.model.SysApiResult" flushCache="true">  
+    UPDATE SYS_API_RESULT SET api_re_name=#{resultName},api_re_search_exception_code=#{exceptionCode},api_re_template=#{template},api_re_cfg_map=#{cfgMap,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler} WHERE api_id=#{id}  
+</update> 
+<delete id="delete" parameterType="int" flushCache="true">  
+    DELETE FROM SYS_API_RESULT WHERE api_id=#{id}  
+</delete>  
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

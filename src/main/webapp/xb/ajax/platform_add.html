@@ -1,0 +1,124 @@
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link rel="stylesheet" href="assets/css/platform_add.css"/>
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+
+<!-- begin #content -->
+<div id="content" class="content">
+    <ol class="breadcrumb pull-right">
+        <li><a href="#ajax/county_infor.html" data-toggle="ajax" class="return">返回&gt;</a></li>
+    </ol>
+    <h1 class="page-header">添加平台</h1>
+    <hr style="border-top:1px solid #d7dde6"/>
+
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-12 -->
+        <div class="col-md-12">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <form class="form-horizontal" data-parsley-validate="true" method="post">
+                        <div id="wizard">
+                            <!-- begin wizard step-1 -->
+                            <div class="step step_actiev">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">平台名称:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platform.name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">平台标识:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platform.code">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">接口名称:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platform.apiName">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">URL地址:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platform.apiUrl">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">传参方式:</label>
+
+                                            <div class="col-sm-4">
+                                                <select class="form-control" name="platformcacfg.inArgMode">
+                                                    <option value="DEFAULT">DEFAULT</option>
+                                                    <option value="JSON">JSON</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">传参配置:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platformcacfg.inArgCfg">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">报错码:</label>
+
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="platformcacfg.notFoundApiException">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step_button">
+                            <button type="button" class="pull-right btn" id="commit" onclick="checkNull()">提交</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!-- end panel -->
+        </div>
+        <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+</div>
+<!-- end #content -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
+<script>
+    App.restartGlobalFunction();
+    $.getScript('assets/js/platform_add.js');
+</script>
+<!-- ================== END PAGE LEVEL JS ================== -->

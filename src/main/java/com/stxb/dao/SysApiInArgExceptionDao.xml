@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiInArgExceptionDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiInArgException" flushCache="true">  
+   insert into SYS_API_INARG_EXCEPTION(api_in_id,api_in_e_null,api_in_e_encode,api_in_e_format,api_in_e_check) values (#{id},#{nullException},#{encodeException},#{formatException},#{argCheckException}) 
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysApiInArgException" resultMap="SysApiInArgExceptionResultMap">  
+    select * from SYS_API_INARG_EXCEPTION where api_in_id = #{id}
+</select> 
+
+
+<resultMap type="com.stxb.model.SysApiInArgException" id="SysApiInArgExceptionResultMap">
+	<id property="id" column="api_in_id" />
+	<result property="nullException" column="api_in_e_null"/>
+	<result property="encodeException" column="api_in_e_encode"/>
+	<result property="formatException" column="api_in_e_format"/>
+	<result property="argCheckException" column="api_in_e_check" />
+</resultMap>
+
+<update id="update" parameterType="com.stxb.model.SysApiInArgException" flushCache="true">  
+    UPDATE SYS_API_INARG_EXCEPTION SET api_in_e_null=#{nullException},api_in_e_encode=#{encodeException},api_in_e_format=#{formatException},api_in_e_check=#{argCheckException} WHERE api_in_id=#{id}  
+</update> 
+<delete id="delete" parameterType="int" flushCache="true">  
+    DELETE FROM SYS_API_INARG_EXCEPTION WHERE api_in_id=#{id}  
+</delete>  
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

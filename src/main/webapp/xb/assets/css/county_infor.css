@@ -1,0 +1,71 @@
+th, tbody {
+    text-align: center;
+}
+
+#content .sea_left {
+    border: 1px solid #e2e7eb;
+    border-radius: 3px;
+    width: 259px;
+    height: 28px;
+    padding-left: 5px;
+}
+
+#content .sea {
+    width: 76px;
+    background: #2ebde4;
+    color: #fff;
+    height: 27px;
+}
+
+#content .add_port {
+    border: 1px solid #2ebde4;
+    padding: 5px 10px;
+    color: #2ebde4;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+a:link {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+a:active {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2ebde4;
+    text-decoration: none;
+}
+#content .table input[type="button"]{
+    border: 1px solid #2ebde4;
+    background: #fff;
+    color: #2ebde4;
+}
+#content .status{
+    border: none;
+    cursor: pointer;
+}
+#content2 #commit{
+    background: #00baf5;
+    color: #fff;
+}
+#content2 a.return{
+    color: #242a30;
+    width: 60px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}

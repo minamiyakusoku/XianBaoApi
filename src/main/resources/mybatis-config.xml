@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC  
+    "-//mybatis.org//DTD Config 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<!-- base=dao/common -->
+		<mapper resource="com/stxb/dao/common/SqlExecuteDao.xml" />
+		
+		 <!-- base=dao -->
+		<mapper resource="com/stxb/dao/SysApiInfoDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiInArgInfoDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiOutArgInfoDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiSqlDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiPlatformDao.xml" />
+		<mapper resource="com/stxb/dao/SysFormatDao.xml" />
+		<mapper resource="com/stxb/dao/SysEncodeDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiInArgExceptionDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiResultDao.xml" />
+		<mapper resource="com/stxb/dao/SysCheckDao.xml" />
+		<mapper resource="com/stxb/dao/SysApiPlatformCACfgDao.xml" />
+	</mappers>
+</configuration>

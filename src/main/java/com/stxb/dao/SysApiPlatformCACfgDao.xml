@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.stxb.dao.SysApiPlatformCACfgDao">  
+
+
+<insert id="save" parameterType="com.stxb.model.SysApiPlatformCACfg" flushCache="true">  
+   insert into SYS_API_PLATFORM_CHILDAPI_CFG(apip_id,apip_inarg_mode,apip_inarg_cfg,apip_notfoundapi) values (#{id},#{inArgMode,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},#{inArgCfg,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler},#{notFoundApiException})
+</insert>  
+
+<select id="get" parameterType="int" resultType="com.stxb.model.SysApiPlatformCACfg" resultMap="SysApiPlatformCACfgResultMap">  
+    select * from SYS_API_PLATFORM_CHILDAPI_CFG where apip_id = #{id}
+</select> 
+
+
+<resultMap type="com.stxb.model.SysApiPlatformCACfg" id="SysApiPlatformCACfgResultMap">
+	<id property="id" column="apip_id" />
+	<result property="inArgMode" column="apip_inarg_mode" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+	<result property="inArgCfg" column="apip_inarg_cfg" typeHandler="com.stxb.utils.typehandler.JsonTypeHandler"/>
+	<result property="notFoundApiException" column="apip_notfoundapi"/>
+</resultMap>
+
+<update id="update" parameterType="com.stxb.model.SysApiPlatformCACfg" flushCache="true">  
+    UPDATE SYS_API_PLATFORM_CHILDAPI_CFG SET apip_inarg_mode=#{inArgMode,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler}, apip_inarg_cfg=#{inArgCfg,typeHandler=com.stxb.utils.typehandler.JsonTypeHandler},apip_notfoundapi=#{notFoundApiException} WHERE apip_id=#{id}  
+</update> 
+<!--  
+<select id="get" parameterType="mod.Mod" resultType="mod.Mod">  
+    SELECT * FROM springandmybatis WHERE id=#{id}
+</select>  
+
+<insert id="insert" parameterType="mod.Mod" flushCache="true">  
+   INSERT INTO springandmybatis (arg) VALUES (#{arg})  
+</insert>  
+<update id="update" parameterType="mod.Mod" flushCache="true">  
+    UPDATE springandmybatis SET arg=#{arg} WHERE id=#{id}  
+</update>  
+<delete id="delete" parameterType="mod.Mod" flushCache="true">  
+    DELETE FROM springandmybatis WHERE id=#{id}  
+</delete>  
+-->
+</mapper>

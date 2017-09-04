@@ -1,0 +1,154 @@
+th, tbody {
+    text-align: center;
+}
+
+#content .sea_left {
+    border: 1px solid #e2e7eb;
+    border-radius: 3px;
+    width: 259px;
+    height: 28px;
+    padding-left: 5px;
+}
+
+#content .sea {
+    width: 76px;
+    background: #2ebde4;
+    color: #fff;
+    height: 27px;
+}
+
+#content .add_port {
+    border: 1px solid #2ebde4;
+    padding: 5px 10px;
+    color: #2ebde4;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+ a:link {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+ a:active {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+ a:visited {
+    color: #2ebde4;
+    text-decoration: none;
+}
+
+ a:hover {
+    color: #2ebde4;
+    text-decoration: none;
+}
+#content .table input[type="button"]{
+    border: 1px solid #2ebde4;
+    background: #fff;
+    color: #2ebde4;
+}
+#content .status{
+    border: none;
+    cursor: pointer;
+}
+
+#content2 a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+#content2 a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+#content2 a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+#content2 a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#content2 #wizard ol{
+    list-style: none;
+    width: 100%;
+}
+#content2 .wizard_title li{
+    height: 52px;
+    background: #4d5e71;
+    color:#fff;
+    line-height: 52px;
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 2px solid #fff;
+}
+#content2 .wizard_title span{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    color: #4d5e71;
+    display: inline-block;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 50%;
+    margin-right:8px;
+}
+#content2 .wizard_title{
+    margin-bottom: 34px;
+}
+#content2 .wizard_title a{
+    font-size: 18px;
+}
+#content2 .wizard_title .active{
+    background: #00baf5;
+}
+#content2 .step{
+    display: none;
+}
+#content2 .step_actiev{
+    display: block;
+}
+#content2 a.next_step,#content2 a.prev_step{
+    color: #242a30;
+    width: 80px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}
+#content2 a.return{
+    color: #242a30;
+    width: 60px;
+    height: 24px;
+    display: inline-block;
+    border: 1px solid #ccd0d4;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 20px;
+}
+#content2 .font_right{
+    text-align: right;
+}
+#content2.dashed{
+    border-bottom: 1px dashed #a3aab2;
+    margin-top: 14px;
+}
+#content2 .step_button{
+    height: 30px;
+    margin-right: 300px;
+}
+#content2 #commit,.prev_step{
+    display: none;
+}
+#content2 #commit{
+    background: #00baf5;
+    color: #fff;
+}
